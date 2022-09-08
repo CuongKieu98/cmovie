@@ -14,7 +14,7 @@ const Button = (props) => {
   );
 };
 
-const OutLineButton = (props) => {
+export const OutLineButton = (props) => {
   const { className, onClick, children } = props;
 
   return (

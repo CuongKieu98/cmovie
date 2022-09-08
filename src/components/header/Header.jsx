@@ -24,6 +24,7 @@ const Header = () => {
   const active = headerNav.findIndex((e) => e.path === pathname);
 
   useEffect(() => {
+    //ẩn background header khi cuộn chuột
     const shrinkHeader = () => {
       if (
         document.body.scrollTop > 100 ||
