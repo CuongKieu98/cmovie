@@ -6,7 +6,7 @@ export const category = {
 };
 
 export const movieType = {
-  upcomming: "upcomming",
+  upcoming: "upcoming",
   popular: "popular",
   top_rated: "top_rated",
 };
