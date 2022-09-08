@@ -11,9 +11,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Routesv6 from "./config/Routesv6";
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import Catalog from "./pages/Catalog";
-import Home from "./pages/Home";
-import Detail from "./pages/Detail";
 
 function App() {
   return (
