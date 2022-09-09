@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import './movie-grid.scss'
 import {useParams} from 'react-router'
 import tmdbApi, { category, movieType, tvType } from '../../api/tmdbApi';
 import MovieCard from '../movie-card/MovieCard';
-import { OutLineButton } from '../button/Button';
+import Button, { OutLineButton } from '../button/Button';
+import Input from '../input/Input';
+import {useNavigate} from 'react-router-dom'
 
 const MovieGrid = (props) => {
     const [items ,setItems] = useState([]);
@@ -68,6 +70,9 @@ const MovieGrid = (props) => {
     
   return (
     <>
+    <div className="section mb-3">
+        <MovieSearch category={props.category} keyword={keyword}/>
+    </div>
     <div className='movie-grid'>
         {
             items.map((item,index) =>(
@@ -84,6 +89,38 @@ const MovieGrid = (props) => {
     }
     </>
   )
+}
+
+const MovieSearch = props =>{
+    const navigate = useNavigate();
+
+    const [keyword,setKeyWord] = useState(props.keyword ? props.keyword : "")
+    const goToSearch = useCallback(
+        () =>{
+            if(keyword.trim().length > 0){
+                navigate(`/${category[props.category]}/search/${keyword}`)
+            }
+        },[keyword,props.category,navigate]
+    )
+    useEffect(() =>{
+        const enterEvent = (e) =>{
+            e.preventDefault();
+            if(e.keyCode === 13){
+                goToSearch();
+            }
+
+        }
+        document.addEventListener('keyup',enterEvent);
+        return () =>{
+            document.removeEventListener('keyup',enterEvent)
+        }
+     },[keyword,goToSearch])
+    return (
+        <div className='movie-search'>
+            <Input type={"text"} placeholder="Enter keyword" value={keyword} onChange={(e) => setKeyWord(e.target.value)}  />
+            <Button className="small" onClick={goToSearch}>Search</Button>
+        </div>
+    )
 }
 
 export default MovieGrid
