@@ -15,7 +15,7 @@ const Home = () => {
         {/* trending slide */}
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Trending Movies</h2>
+            <h2>PHIM ĐANG CHIẾU</h2>
             <Link to={"/movie"}>
               <OutLineButton className="small" >View More</OutLineButton>
             </Link>
@@ -25,7 +25,7 @@ const Home = () => {
         {/* rated slide */}
         <div className="section mb-3">
           <div className="section__header mb-2">
-            <h2>Top Rated Movie</h2>
+            <h2>PHIM SẮP CHIẾU</h2>
             <Link to={"/movie"}>
               <OutLineButton className="small" >View More</OutLineButton>
             </Link>

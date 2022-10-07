@@ -13,7 +13,6 @@ const CastList = (props) => {
   useEffect(() => {
     const getCreadits = async () => {
       const res = await tmdbApi.credits(category, props.id);
-      console.log(res);
       setCasts(res.cast.slice(0, 5));
     };
     getCreadits();
@@ -23,12 +22,9 @@ const CastList = (props) => {
     <div className="casts">
       {casts.map((item, index) => (
         <div className="casts__item" key={index}>
-          <div
-            className="casts__item__img"
-            style={{
-              backgroundImage: `url(${apiConfig.w500Image(item.profile_path)})`,
-            }}
-          ></div>
+          <figure>
+            <img src={apiConfig.w500Image(item.profile_path)} alt="" />
+          </figure>
           <p className="casts__item__name">{item.name}</p>
         </div>
       ))}

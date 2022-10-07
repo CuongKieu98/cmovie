@@ -13,13 +13,13 @@ import Modal, { ModalContent } from "../modal/Modal";
 const HeroSlide = () => {
   const [movieItem, setMovieItem] = useState([]);
 
+
   useEffect(() => {
     const getMovies = async () => {
       const params = { page: 1 };
       try {
         const res = await tmdbApi.getMoviesList(movieType.popular, { params });
-        setMovieItem(res.results.slice(0, 4));
-        console.log(res.results.slice(0, 4));
+        setMovieItem(res.results.slice(1, 5));
       } catch (error) {
         console.log(error);
       }

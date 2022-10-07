@@ -6,8 +6,17 @@
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 160%;
-  border-radius: $boder-radius;
+  border-radius: 5px;
   margin-bottom: 1rem;
+  transform: scale(1);
+  transition: 0.5s ease;
+  margin-top: 1rem;
+  &:hover {
+    transform: scale(1.1);
+    .btn {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
 
   .btn {
     position: absolute;
@@ -15,6 +24,7 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1rem;
   }
 
   &::before {
@@ -30,12 +40,13 @@
     border-radius: $boder-radius;
   }
 
-  @media (hover: hover) and (pointer:fine) {
-    &:hover::before {
-      opacity: 0.8;
-    }
+  @media (hover: hover) and (pointer: fine) {
     &:hover .btn {
       transform: translate(-50%, -50%) scale(1);
     }
   }
+}
+h3.title {
+  text-align: center;
+  text-transform: capitalize;
 }
