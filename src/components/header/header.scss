@@ -23,13 +23,11 @@
   left: 0;
   width: 100%;
   z-index: 99;
-  transition: 0.3s ease;
+  transition: height 0.3s ease, background-color 0.3s ease;
 
   &.shrink {
     height: $header-shrink-height;
-    background: var(--body-bg);
-    background: var(--body-bg-wk-gradient);
-    background: var(--body-bg-gradient);
+    background-color: $body-bg;
   }
 
   &__wrap {
